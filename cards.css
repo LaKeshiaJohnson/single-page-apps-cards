@@ -1,8 +1,19 @@
-#card {
-	height: 100px;
-	width: 80px;
-	background-color: #ce93d8;
-	border: 2px solid #9c64a6;
-	padding: 5px;
-	margin-top: 20px;
+div {
+	color: black;
+	background-color: #d1c4e9;
+	padding: 10px;
+	border: 3px solid #836fa9;
+	height: 200px;
+	width: 150px;
+	margin: 10px;
+	font-size: 20px;
+}
+
+#cardArea {
+	background-color: white;
+	border: none;
+}
+
+input[type="text"] {
+    font-size: 14px;
 }

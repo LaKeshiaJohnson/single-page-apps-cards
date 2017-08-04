@@ -10,12 +10,40 @@ should then be removed from the DOM. Not just made invisible, actually removed f
 console.log("hi there");
 
 let inputArea = document.getElementById("input-box");
-let button = document.getElementById("createbtn");
+let createCardBtn = document.getElementById("createbtn");
+let cardArea = document.getElementById("cardArea");
 
-button.addEventListener("click", create)
+createCardBtn.addEventListener("click", create);
 
 function create() {
-	let cardArea = inputArea.value;
+	let userinput = inputArea.value;
+	//console.log(userinput);
+	//document.getElementById("cardArea").innerHTML = cardArea;
+	newCard = document.createElement("div");
+	newCard.innerHTML = `<p>${userinput}</p>`;
+	console.log(newCard);
+	//newCard.append(userinput);
+	cardArea.appendChild(newCard);
+
+	let deletebtn = document.createElement("BUTTON");
+	let deletebtnTxt = document.createTextNode("DELETE");
+	deletebtn.appendChild(deletebtnTxt);
+	newCard.appendChild(deletebtn);
+
+
+	deletebtn.addEventListener("click", removeCard);
+
+	function removeCard() {
+		let card = this.parentNode;
+		cardArea.removeChild(card);
+	};
 	
-	document.getElementById("cardArea").innerHTML = cardArea;
 };
+
+/*deletebtn.addEventListener("click", removeCard);
+
+function removeCard() {
+	let card = this.parentNode;
+	cardArea.removeChild(card);
+};
+*/
