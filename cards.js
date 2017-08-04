@@ -9,41 +9,50 @@ should then be removed from the DOM. Not just made invisible, actually removed f
 
 console.log("hi there");
 
+//Variables for user input area, create card button, and card area
+
 let inputArea = document.getElementById("input-box");
 let createCardBtn = document.getElementById("createbtn");
 let cardArea = document.getElementById("cardArea");
 
+//event listener for the create card button 
 createCardBtn.addEventListener("click", create);
 
+//function to create the card once create button is clicked
 function create() {
+
+	//this is getting the value/actual text that was entered in the input field
 	let userinput = inputArea.value;
 	//console.log(userinput);
-	//document.getElementById("cardArea").innerHTML = cardArea;
+
+	//creating a div element that will be the card
 	newCard = document.createElement("div");
+
+	//writing the user input inside a paragraph tag that will go on the card
 	newCard.innerHTML = `<p>${userinput}</p>`;
-	console.log(newCard);
-	//newCard.append(userinput);
-	cardArea.appendChild(newCard);
+	//console.log(newCard);
+	// newCard.append(userinput);
 
-	let deletebtn = document.createElement("BUTTON");
-	let deletebtnTxt = document.createTextNode("DELETE");
-	deletebtn.appendChild(deletebtnTxt);
-	newCard.appendChild(deletebtn);
+	//attaching the newly created card to the card area
+	cardArea.append(newCard);
 
+	//creating the delete button that will go on each card
+	let deletebtn = document.createElement("button");
+	//creating the text that will appear on the button: DELETE
+	let deletebtnTxt = document.createTextNode("Delete");
+	//adding the delete text to the button
+	deletebtn.append(deletebtnTxt);
+	//attaching the delete button to the newly created card
+	newCard.append(deletebtn);
 
+	//event listener for the delete button on each card
+	//will run the removeCard function once the delete btn is clicked
 	deletebtn.addEventListener("click", removeCard);
 
+	//targeting card and removing it from the card area
 	function removeCard() {
 		let card = this.parentNode;
 		cardArea.removeChild(card);
 	};
 	
 };
-
-/*deletebtn.addEventListener("click", removeCard);
-
-function removeCard() {
-	let card = this.parentNode;
-	cardArea.removeChild(card);
-};
-*/
