@@ -29,7 +29,7 @@ function create() {
 	newCard = document.createElement("div");
 
 	//writing the user input inside a paragraph tag that will go on the card
-	newCard.innerHTML = `<p>${userinput}</p>`;
+	newCard.innerHTML = `<p id="style">${userinput}</p>`;
 	//console.log(newCard);
 	// newCard.append(userinput);
 
